@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MaintainEase – My Complaints</title>
+  <link rel="stylesheet" href="/public/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand"><i class="fa-solid fa-screwdriver-wrench"></i> MaintainEase</div>
+    <ul class="nav-links">
+      <li><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="/views/complaint-form.html"><i class="fa-solid fa-pen-to-square"></i> Report Issue</a></li>
+      <li><a href="/views/complaint-history.html" class="active"><i class="fa-solid fa-clock-rotate-left"></i> My Complaints</a></li>
+      <li><a href="/views/admin-dashboard.html"><i class="fa-solid fa-gauge-high"></i> Admin</a></li>
+      <li><a href="/views/about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+      <li><a href="/views/contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header animate-in">
+    <h1><i class="fa-solid fa-clock-rotate-left" style="color:var(--blue);margin-right:10px;"></i>My Complaint History</h1>
+    <p>Enter your apartment number to view all your submitted maintenance complaints.</p>
+  </div>
+
+  <div class="search-container animate-in delay-1">
+    <div class="search-card">
+      <h2><i class="fa-solid fa-magnifying-glass" style="color:var(--blue)"></i> Search by Apartment Number</h2>
+      <div class="search-box">
+        <input type="text" id="apartment-input" placeholder="Enter apartment number (e.g. B-204)"/>
+        <button class="btn btn-primary" id="search-btn"><i class="fa-solid fa-search"></i> Search</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="complaints-list"></div>
+  </div>
+
+  <footer class="footer">
+    <span class="footer-brand"><i class="fa-solid fa-screwdriver-wrench"></i> MaintainEase</span>
+    <p>© 2025 MaintainEase. All rights reserved.</p>
+  </footer>
+
+  <script src="/public/js/complaint-history.js"></script>
+</body>
+</html>

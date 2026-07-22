@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MaintainEase – Residential Maintenance Management</title>
+  <meta name="description" content="MaintainEase – Effortlessly report and track residential maintenance complaints."/>
+  <link rel="stylesheet" href="/public/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand"><i class="fa-solid fa-screwdriver-wrench"></i> MaintainEase</div>
+    <ul class="nav-links">
+      <li><a href="/" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="/views/complaint-form.html"><i class="fa-solid fa-pen-to-square"></i> Report Issue</a></li>
+      <li><a href="/views/complaint-history.html"><i class="fa-solid fa-clock-rotate-left"></i> My Complaints</a></li>
+      <li><a href="/views/admin-dashboard.html"><i class="fa-solid fa-gauge-high"></i> Admin</a></li>
+      <li><a href="/views/about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+      <li><a href="/views/contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge animate-in"><i class="fa-solid fa-bolt"></i> Residential Maintenance Platform</div>
+    <h1 class="animate-in delay-1">Maintenance Requests,<br/><span>Resolved Faster.</span></h1>
+    <p class="animate-in delay-2">Report issues, get them assigned, and track resolution — all in one professional platform built for modern residential communities.</p>
+    <div class="hero-buttons animate-in delay-3">
+      <a href="/views/complaint-form.html" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Report an Issue</a>
+      <a href="/views/complaint-history.html" class="btn btn-outline"><i class="fa-solid fa-magnifying-glass"></i> Track My Complaint</a>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-section">
+    <p class="section-sub" style="text-align:center;color:var(--text-dim);font-size:0.8rem;letter-spacing:1px;font-weight:600;text-transform:uppercase;margin-bottom:24px;">LIVE SYSTEM OVERVIEW</p>
+    <div class="stats-grid">
+      <div class="stat-card animate-in delay-1">
+        <div class="stat-icon"><i class="fa-solid fa-layer-group" style="color:var(--blue)"></i></div>
+        <span class="stat-number" id="stat-total">0</span>
+        <span class="stat-label">Total Complaints</span>
+      </div>
+      <div class="stat-card pending animate-in delay-1">
+        <div class="stat-icon"><i class="fa-solid fa-hourglass-half" style="color:var(--amber)"></i></div>
+        <span class="stat-number" id="stat-pending">0</span>
+        <span class="stat-label">Pending</span>
+      </div>
+      <div class="stat-card assigned animate-in delay-2">
+        <div class="stat-icon"><i class="fa-solid fa-user-check" style="color:var(--cyan)"></i></div>
+        <span class="stat-number" id="stat-assigned">0</span>
+        <span class="stat-label">Assigned</span>
+      </div>
+      <div class="stat-card inprogress animate-in delay-3">
+        <div class="stat-icon"><i class="fa-solid fa-gear" style="color:var(--purple)"></i></div>
+        <span class="stat-number" id="stat-inprogress">0</span>
+        <span class="stat-label">In Progress</span>
+      </div>
+      <div class="stat-card completed animate-in delay-4">
+        <div class="stat-icon"><i class="fa-solid fa-circle-check" style="color:var(--emerald)"></i></div>
+        <span class="stat-number" id="stat-completed">0</span>
+        <span class="stat-label">Completed</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features-section">
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-sub">Three simple steps from issue to resolution</p>
+    <div class="features-grid">
+      <div class="feature-card animate-in delay-1">
+        <div class="feature-icon-wrap"><i class="fa-solid fa-file-pen"></i></div>
+        <h3>1. Report an Issue</h3>
+        <p>Fill a simple form with your apartment number, category, priority, and description of the problem.</p>
+      </div>
+      <div class="feature-card animate-in delay-2">
+        <div class="feature-icon-wrap"><i class="fa-solid fa-helmet-safety"></i></div>
+        <h3>2. Get Assigned</h3>
+        <p>The maintenance team reviews your complaint and assigns a qualified technician to handle it.</p>
+      </div>
+      <div class="feature-card animate-in delay-3">
+        <div class="feature-icon-wrap"><i class="fa-solid fa-circle-check"></i></div>
+        <h3>3. Track & Resolve</h3>
+        <p>Follow your complaint's journey from Pending → Assigned → In Progress → Completed in real time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:64px 48px;text-align:center;background:var(--bg-card);border-top:1px solid var(--border2);">
+    <h2 style="font-size:1.7rem;font-weight:800;margin-bottom:12px;letter-spacing:-0.5px;">Have a maintenance issue?</h2>
+    <p style="color:var(--text-muted);margin-bottom:28px;font-size:0.95rem;">Get it reported and resolved quickly. Our team is ready to help.</p>
+    <a href="/views/complaint-form.html" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i> Submit a Complaint Now</a>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-brand"><i class="fa-solid fa-screwdriver-wrench"></i> MaintainEase</span>
+    <p>© 2025 MaintainEase. Residential Maintenance Management System.</p>
+  </footer>
+
+  <script src="/public/js/home.js"></script>
+</body>
+</html>

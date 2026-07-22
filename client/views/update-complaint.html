@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MaintainEase – Update Complaint</title>
+  <link rel="stylesheet" href="/public/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<div class="admin-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <span class="sidebar-brand"><i class="fa-solid fa-screwdriver-wrench"></i> MaintainEase</span>
+      <span class="sidebar-sub">Admin Panel</span>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Main</div>
+      <a href="/views/admin-dashboard.html" class="sidebar-link">
+        <i class="fa-solid fa-gauge-high"></i> Dashboard
+      </a>
+      <a href="/views/manage-complaints.html" class="sidebar-link active">
+        <i class="fa-solid fa-list-check"></i> Manage Complaints
+      </a>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-section-label">Resident</div>
+      <a href="/views/complaint-form.html" class="sidebar-link">
+        <i class="fa-solid fa-pen-to-square"></i> Submit Complaint
+      </a>
+      <a href="/views/complaint-history.html" class="sidebar-link">
+        <i class="fa-solid fa-clock-rotate-left"></i> Complaint History
+      </a>
+      <div class="sidebar-divider"></div>
+      <a href="/" class="sidebar-link">
+        <i class="fa-solid fa-house"></i> Go to Homepage
+      </a>
+    </nav>
+    <div class="sidebar-footer">MaintainEase v1.0</div>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div>
+        <h2><i class="fa-solid fa-pen-to-square" style="color:var(--blue);margin-right:8px;"></i>Update Complaint</h2>
+        <div class="topbar-breadcrumb"><i class="fa-solid fa-house"></i> Admin <i class="fa-solid fa-chevron-right"></i> <a href="/views/manage-complaints.html" style="color:var(--blue)">Manage</a> <i class="fa-solid fa-chevron-right"></i> Update</div>
+      </div>
+    </div>
+
+    <div class="admin-content">
+      <div class="form-container animate-in" style="margin:0;max-width:700px;">
+
+        <!-- Complaint Info Card -->
+        <div class="form-section-title">
+          <i class="fa-solid fa-circle-info" style="color:var(--blue)"></i> Complaint Details
+        </div>
+        <div class="info-card" id="complaint-info">
+          <i class="fa-solid fa-spinner fa-spin"></i> Loading complaint details...
+        </div>
+
+        <!-- Update Form -->
+        <div class="form-section-title" style="margin-top:8px;">
+          <i class="fa-solid fa-pen-to-square" style="color:var(--purple)"></i> Update Information
+        </div>
+        <form id="update-form">
+
+          <div class="form-group">
+            <label><i class="fa-solid fa-helmet-safety"></i> Assign Technician</label>
+            <input type="text" id="technician" placeholder="e.g. Ravi Kumar"/>
+          </div>
+
+          <div class="form-group">
+            <label><i class="fa-solid fa-circle-half-stroke"></i> Update Status</label>
+            <select id="status">
+              <option value="Pending">⏳ Pending</option>
+              <option value="Assigned">👷 Assigned</option>
+              <option value="In Progress">⚙️ In Progress</option>
+              <option value="Completed">✅ Completed</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label><i class="fa-solid fa-comment-dots"></i> Resolution Remarks</label>
+            <textarea id="remarks" rows="3" placeholder="Add notes about the issue or resolution steps taken..."></textarea>
+          </div>
+
+          <div class="form-buttons">
+            <button type="submit" class="btn btn-primary" id="update-btn">
+              <i class="fa-solid fa-floppy-disk"></i> Save Changes
+            </button>
+            <a href="/views/manage-complaints.html" class="btn btn-ghost">
+              <i class="fa-solid fa-arrow-left"></i> Back to List
+            </a>
+          </div>
+
+          <div id="update-message" class="form-message hidden"></div>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="/public/js/update-complaint.js"></script>
+</body>
+</html>
