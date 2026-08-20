@@ -4,6 +4,7 @@ const cors = require('cors');
 const path = require('path');
 
 const complaintRoutes = require('./routes/complaints');
+const authRoutes      = require('./routes/auth');
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../client')));
 
 // API Routes
+app.use('/api/auth',       authRoutes);
 app.use('/api/complaints', complaintRoutes);
 
 // Connect to MongoDB and start server
