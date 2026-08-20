@@ -13,8 +13,10 @@ maintainease/
 │   ├── index.html               ← Home page
 │   ├── public/
 │   │   ├── style.css            ← All CSS styles
+│   │   ├── login.css            ← Auth page styles
 │   │   └── js/
 │   │       ├── home.js
+│   │       ├── login.js          ← Auth logic (register/login/JWT)
 │   │       ├── complaint-form.js
 │   │       ├── complaint-history.js
 │   │       ├── admin-dashboard.js
@@ -22,6 +24,7 @@ maintainease/
 │   │       ├── update-complaint.js
 │   │       └── contact.js
 │   └── views/
+│       ├── login.html            ← Login & Register page (Resident / Admin)
 │       ├── complaint-form.html
 │       ├── complaint-history.html
 │       ├── admin-dashboard.html
@@ -33,11 +36,14 @@ maintainease/
     ├── app.js                   ← Entry point
     ├── package.json
     ├── models/
+    │   ├── User.js              ← User schema (bcrypt hashed password)
     │   └── Complaint.js         ← MongoDB schema
     ├── routes/
-    │   └── complaints.js        ← API routes
+    │   ├── auth.js              ← Auth API routes
+    │   └── complaints.js        ← Complaints API routes
     └── controllers/
-        └── complaintController.js ← Business logic
+        ├── authController.js    ← Register, Login, getMe logic
+        └── complaintController.js ← Complaint business logic
 ```
 
 ---
@@ -68,6 +74,7 @@ Open your browser and go to: **http://localhost:3000**
 | Page | URL |
 |---|---|
 | Home | http://localhost:3000 |
+| Login / Register | http://localhost:3000/views/login.html |
 | Report Issue | http://localhost:3000/views/complaint-form.html |
 | My Complaints | http://localhost:3000/views/complaint-history.html |
 | Admin Dashboard | http://localhost:3000/views/admin-dashboard.html |
@@ -79,6 +86,16 @@ Open your browser and go to: **http://localhost:3000**
 
 ## 🔌 API Endpoints
 
+### 🔐 Auth Routes — `/api/auth`
+
+| Method | URL | Description |
+|---|---|---|
+| POST | /api/auth/register | Register a new user (resident or admin) |
+| POST | /api/auth/login | Login and receive a JWT token |
+| GET | /api/auth/me | Get current user info (requires token) |
+
+### 📋 Complaint Routes — `/api/complaints`
+
 | Method | URL | Description |
 |---|---|---|
 | POST | /api/complaints | Add new complaint |
@@ -89,8 +106,21 @@ Open your browser and go to: **http://localhost:3000**
 
 ---
 
+## 🔐 Authentication
+
+- Users can register as **Resident** or **Admin** from the login page.
+- Passwords are hashed using **bcryptjs** before being stored in MongoDB.
+- On login, a signed **JWT token** is returned and stored in `localStorage`.
+- Token includes the user's role and ID, used for role-based redirects:
+  - Residents → Home page
+  - Admins → Admin Dashboard
+
+---
+
 ## 🛠️ Tech Stack
 
 - **Frontend**: HTML, CSS, JavaScript (Vanilla)
 - **Backend**: Node.js + Express.js
 - **Database**: MongoDB + Mongoose
+- **Authentication**: JWT (jsonwebtoken) + bcryptjs
+
