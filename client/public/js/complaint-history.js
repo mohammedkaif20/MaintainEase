@@ -1,6 +1,6 @@
 // complaint-history.js – Search complaints by apartment number
 
-const API = 'http://localhost:3000/api/complaints';
+const API = '/api/complaints';
 const searchBtn = document.getElementById('search-btn');
 const input     = document.getElementById('apartment-input');
 const listDiv   = document.getElementById('complaints-list');
