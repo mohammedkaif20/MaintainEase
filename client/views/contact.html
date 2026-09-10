@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MaintainEase – Contact</title>
+  <link rel="stylesheet" href="/public/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="/" class="nav-brand">
+    <i class="fa-solid fa-screwdriver-wrench"></i> MaintainEase
+</a>
+    <ul class="nav-links">
+      <li><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="/views/complaint-form.html"><i class="fa-solid fa-pen-to-square"></i> Report Issue</a></li>
+      <li><a href="/views/complaint-history.html"><i class="fa-solid fa-clock-rotate-left"></i> My Complaints</a></li>
+      <li><a href="/views/admin-dashboard.html" class="nav-admin-link"><i class="fa-solid fa-gauge-high"></i> Admin</a></li>
+      <li><a href="/views/about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+      <li><a href="/views/contact.html" class="active"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+      <li id="nav-login-li"><a href="/views/login.html" class="btn btn-primary" style="padding:7px 18px;font-size:0.85rem;"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header animate-in">
+    <h1><i class="fa-solid fa-envelope" style="color:var(--blue);margin-right:10px;"></i>Contact Us</h1>
+    <p>Have questions or need support? We're here to help you.</p>
+  </div>
+
+  <div class="container">
+    <div class="contact-grid animate-in delay-1">
+
+      <div class="contact-info-list">
+        <div class="contact-item">
+          <div class="contact-item-icon"><i class="fa-solid fa-location-dot" style="color:#fff;"></i></div>
+          <div class="contact-item-body">
+            <strong>Address</strong>
+            <p>Sunrise Residency, Block A, New Delhi – 110001</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><i class="fa-solid fa-phone" style="color:#fff;"></i></div>
+          <div class="contact-item-body">
+            <strong>Phone</strong>
+            <p>+91 98765 43210</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><i class="fa-solid fa-envelope" style="color:#fff;"></i></div>
+          <div class="contact-item-body">
+            <strong>Email</strong>
+            <p>support@maintainease.com</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><i class="fa-solid fa-clock" style="color:#fff;"></i></div>
+          <div class="contact-item-body">
+            <strong>Working Hours</strong>
+            <p>Monday – Saturday, 9:00 AM – 6:00 PM</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-container" style="margin:0;">
+        <div class="form-section-title">
+          <i class="fa-solid fa-paper-plane" style="color:var(--blue)"></i> Send a Message
+        </div>
+        <form id="contact-form">
+          <div class="form-group">
+            <label><i class="fa-solid fa-user"></i> Your Name</label>
+            <input type="text" id="contact-name" placeholder="John Doe" required/>
+          </div>
+          <div class="form-group">
+            <label><i class="fa-solid fa-envelope"></i> Email Address</label>
+            <input type="email" id="contact-email" placeholder="john@example.com" required/>
+          </div>
+          <div class="form-group">
+            <label><i class="fa-solid fa-comment"></i> Message</label>
+            <textarea id="contact-message" rows="4" placeholder="Write your message here..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+          <div id="contact-message-status" class="form-message hidden"></div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <a href="/" class="footer-brand"><i class="fa-solid fa-screwdriver-wrench"></i> MaintainEase</a>
+    <p>© 2025 MaintainEase. All rights reserved.</p>
+  </footer>
+
+  <script src="/public/js/nav.js"></script>
+  <script src="/public/js/contact.js"></script>
+</body>
+</html>

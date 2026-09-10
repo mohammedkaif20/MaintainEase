@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MaintainEase – Manage Complaints</title>
+  <script>
+    (function () {
+      var t = localStorage.getItem('me_token');
+      var r = localStorage.getItem('me_role');
+      if (!t || r !== 'admin') {
+        window.location.replace('/views/login.html');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="/public/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<div class="admin-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <a href="/" class="sidebar-brand"><i class="fa-solid fa-screwdriver-wrench"></i> MaintainEase</a>
+      <span class="sidebar-sub">Admin Panel</span>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Main</div>
+      <a href="/views/admin-dashboard.html" class="sidebar-link">
+        <i class="fa-solid fa-gauge-high"></i> Dashboard
+      </a>
+      <a href="/views/manage-complaints.html" class="sidebar-link active">
+        <i class="fa-solid fa-list-check"></i> Manage Complaints
+      </a>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-section-label">Resident</div>
+      <a href="/views/complaint-form.html" class="sidebar-link">
+        <i class="fa-solid fa-pen-to-square"></i> Submit Complaint
+      </a>
+      <a href="/views/complaint-history.html" class="sidebar-link">
+        <i class="fa-solid fa-clock-rotate-left"></i> Complaint History
+      </a>
+      <div class="sidebar-divider"></div>
+      <a href="/" class="sidebar-link">
+        <i class="fa-solid fa-house"></i> Go to Homepage
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;">
+        <span style="font-size:0.85rem;color:var(--text);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+          <i class="fa-solid fa-user-shield" style="color:var(--blue);margin-right:5px;"></i><span id="admin-name-display">Admin</span>
+        </span>
+        <button id="sidebar-logout-btn" class="btn btn-outline" style="padding:4px 10px;font-size:0.75rem;border-radius:6px;cursor:pointer;">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </div>
+      <div>MaintainEase v1.0</div>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div>
+        <h2><i class="fa-solid fa-list-check" style="color:var(--blue);margin-right:8px;"></i>Manage Complaints</h2>
+        <div class="topbar-breadcrumb"><i class="fa-solid fa-house"></i> Admin <i class="fa-solid fa-chevron-right"></i> Manage</div>
+      </div>
+    </div>
+
+    <div class="admin-content">
+
+      <!-- Filter Bar -->
+      <div class="filter-bar animate-in">
+        <label><i class="fa-solid fa-filter"></i> Filter by Status:</label>
+        <select id="filter-status">
+          <option value="All">All Complaints</option>
+          <option value="Pending">Pending</option>
+          <option value="Assigned">Assigned</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Completed">Completed</option>
+        </select>
+        <label style="margin-left:16px;"><i class="fa-solid fa-tag"></i> Category:</label>
+        <select id="filter-category">
+          <option value="All">All Categories</option>
+          <option value="Plumbing">Plumbing</option>
+          <option value="Electrical">Electrical</option>
+          <option value="Carpentry">Carpentry</option>
+          <option value="Cleaning">Cleaning</option>
+          <option value="Other">Other</option>
+        </select>
+        <span id="result-count" style="margin-left:auto;font-size:0.82rem;color:var(--text-dim);"></span>
+      </div>
+
+      <div class="table-wrapper animate-in delay-1">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Resident</th>
+              <th>Apartment</th>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Priority</th>
+              <th>Technician</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="complaints-tbody">
+            <tr><td colspan="10" style="text-align:center;color:var(--text-dim);padding:40px;"><i class="fa-solid fa-spinner fa-spin"></i> Loading complaints...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="/public/js/manage-complaints.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MaintainEase – Login</title>
+  <meta name="description" content="Sign in or create an account on MaintainEase to report and manage residential maintenance complaints."/>
+  <link rel="stylesheet" href="/public/style.css"/>
+  <link rel="stylesheet" href="/public/login.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body class="login-body">
+
+  <!-- Animated background blobs -->
+  <div class="login-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <div class="login-wrapper">
+
+    <!-- Left Panel -->
+    <div class="login-left animate-in">
+      <a href="/" class="login-brand">
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+        MaintainEase
+      </a>
+      <h1>Your maintenance<br/><span>solved faster.</span></h1>
+      <p>The all-in-one platform for residential communities to report, track, and resolve maintenance issues seamlessly.</p>
+
+      <div class="login-features">
+        <div class="login-feature-item">
+          <div class="login-feature-icon"><i class="fa-solid fa-file-pen"></i></div>
+          <div>
+            <strong>Report Issues</strong>
+            <span>Submit complaints in seconds</span>
+          </div>
+        </div>
+        <div class="login-feature-item">
+          <div class="login-feature-icon" style="background: linear-gradient(135deg, var(--cyan), var(--blue))"><i class="fa-solid fa-gauge-high"></i></div>
+          <div>
+            <strong>Real-time Tracking</strong>
+            <span>Monitor every complaint live</span>
+          </div>
+        </div>
+        <div class="login-feature-item">
+          <div class="login-feature-icon" style="background: linear-gradient(135deg, var(--emerald), var(--cyan))"><i class="fa-solid fa-circle-check"></i></div>
+          <div>
+            <strong>Fast Resolutions</strong>
+            <span>Assigned to techs instantly</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="login-right animate-in delay-1">
+
+      <!-- Role Selector -->
+      <div class="role-selector" id="role-selector-wrap">
+        <button type="button" class="role-btn active" id="role-resident" onclick="setRole('resident')">
+          <i class="fa-solid fa-user"></i> Resident
+        </button>
+        <button type="button" class="role-btn" id="role-admin" onclick="setRole('admin')">
+          <i class="fa-solid fa-shield-halved"></i> Admin
+        </button>
+      </div>
+
+      <!-- Tab Switcher -->
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab active" id="tab-login" onclick="switchTab('login')">Sign In</button>
+        <button type="button" class="auth-tab" id="tab-register" onclick="switchTab('register')">Register</button>
+      </div>
+
+      <!-- ===== LOGIN FORM ===== -->
+      <form id="login-form" class="auth-form" autocomplete="on">
+        <h2 class="auth-form-title" id="login-title">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          Welcome back
+        </h2>
+        <p class="auth-form-sub" id="login-sub">Sign in to your resident account</p>
+
+        <div class="form-group">
+          <label for="login-email"><i class="fa-solid fa-envelope"></i> Email Address</label>
+          <div class="input-wrap">
+            <input type="email" id="login-email" placeholder="you@example.com" required autocomplete="email"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="login-password"><i class="fa-solid fa-lock"></i> Password</label>
+          <div class="input-wrap">
+            <input type="password" id="login-password" placeholder="Enter your password" required autocomplete="current-password"/>
+            <button type="button" class="toggle-pw" onclick="togglePw('login-password', this)" tabindex="-1">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full" id="login-btn">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <span>Sign In</span>
+        </button>
+
+        <div id="login-message" class="form-message hidden"></div>
+
+        <p class="auth-switch">
+          Don't have an account?
+          <a href="#" onclick="switchTab('register'); return false;">Create one</a>
+        </p>
+      </form>
+
+      <!-- ===== REGISTER FORM ===== -->
+      <form id="register-form" class="auth-form hidden" autocomplete="on">
+        <h2 class="auth-form-title" id="register-title">
+          <i class="fa-solid fa-user-plus"></i>
+          Create Account
+        </h2>
+        <p class="auth-form-sub" id="register-sub">Register as a new resident</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="reg-name"><i class="fa-solid fa-user"></i> Full Name</label>
+            <input type="text" id="reg-name" placeholder="John Doe" required autocomplete="name"/>
+          </div>
+          <div class="form-group" id="reg-apt-group">
+            <label for="reg-apt"><i class="fa-solid fa-building"></i> Apartment No.</label>
+            <input type="text" id="reg-apt" placeholder="e.g. B-204"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="reg-email"><i class="fa-solid fa-envelope"></i> Email Address</label>
+          <input type="email" id="reg-email" placeholder="you@example.com" required autocomplete="email"/>
+        </div>
+
+        <div class="form-group">
+          <label for="reg-password"><i class="fa-solid fa-lock"></i> Password</label>
+          <div class="input-wrap">
+            <input type="password" id="reg-password" placeholder="Min. 6 characters" required autocomplete="new-password"/>
+            <button type="button" class="toggle-pw" onclick="togglePw('reg-password', this)" tabindex="-1">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+          <div class="pw-strength-wrap">
+            <div class="pw-strength" id="pw-strength">
+              <div class="pw-bar" id="pw-bar"></div>
+            </div>
+            <span class="pw-strength-label" id="pw-label"></span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full" id="register-btn">
+          <i class="fa-solid fa-user-plus"></i>
+          <span>Create Account</span>
+        </button>
+
+        <div id="register-message" class="form-message hidden"></div>
+
+        <p class="auth-switch">
+          Already have an account?
+          <a href="#" onclick="switchTab('login'); return false;">Sign in</a>
+        </p>
+      </form>
+
+    </div>
+  </div>
+
+  <script src="/public/js/login.js"></script>
+</body>
+</html>
