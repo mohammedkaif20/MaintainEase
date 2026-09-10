@@ -1217,3 +1217,7 @@ tbody tr:hover {
   .footer { padding: 20px 24px; }
   .search-container { padding: 24px; }
 }
+.nav-brand {
+    text-decoration: none;
+    color: inherit;
+}
