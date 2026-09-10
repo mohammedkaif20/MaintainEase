@@ -1,6 +1,6 @@
 // update-complaint.js - Loads complaint details and handles the update form
 
-const API = 'http://localhost:3000/api/complaints';
+const API = '/api/complaints';
 const msgBox = document.getElementById('update-message');
 
 // Get complaint ID from URL: e.g. /update-complaint.html?id=abc123
