@@ -1,6 +1,6 @@
 // manage-complaints.js – Shows complaints with dual filter (status + category)
 
-const API = 'http://localhost:3000/api/complaints';
+const API = '/api/complaints';
 let allComplaints = [];
 
 const tbody          = document.getElementById('complaints-tbody');
