@@ -1,6 +1,6 @@
 // complaint-form.js - Handles resident complaint submission
 
-const API = 'http://localhost:3000/api/complaints';
+const API = '/api/complaints';
 const form = document.getElementById('complaint-form');
 const msgBox = document.getElementById('form-message');
 
