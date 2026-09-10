@@ -1,6 +1,6 @@
 // admin-dashboard.js – Stats with counters + bar chart + recent complaints table
 
-const API = 'http://localhost:3000/api/complaints';
+const API = '/api/complaints';
 
 function animateCounter(el, target) {
   let count = 0;
